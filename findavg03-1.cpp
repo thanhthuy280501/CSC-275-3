@@ -1,9 +1,10 @@
 #include <iostream>
 #include <iomanip>
 #include <cstdlib>
+#include <string> 
 using namespace std;
 
-#include "credit.cpp"
+#include "credit.cpp" // Assuming the CreditRecord class is defined in "credit 1.cpp"
 
 //*******************************************************************
 // This program just does a find average from values generated into
@@ -21,7 +22,7 @@ int main( )
   string lnames[10] = {"Johnson","Jones","Anderson","Chester","Edwards","Smith","Eaton","Jackson","Sinjinfrinjinson","Doe"};
   string fnames[10] = {"Sia","Michael","Ophelia","Aloysius","Mergatroid","Winona","Tedrick","Harold","Ula","Joe"};
 
-  srand(42);
+  srand(42);				// Seed the random number generator
 
   for (i = 0; i < 20; i++) {
     cout << "For person " << setw(2) << i << ", ";
@@ -53,8 +54,8 @@ int main( )
   //*******************************************************************
   for (i = 0; i < 20; i++)
     for (j = i+1; j < 20; j++) {
-      if (isEqual(people[i],people[j])) {
-          cout << "people[" << i << "] and people[" << j << "] are equal:" << endl;
+      if ( people[i] == people[j] ) {
+          cout << "people" << i << " and people" << j << " are equal:" << endl;
 
           people[i].output();
 	  cout << endl;
@@ -69,7 +70,7 @@ int main( )
   // into using operator>> and operator<<.
 
   cout << "Just for testing purposes, I'm asking for a new person." << endl;
-  newperson.input();
+  cin >> myPerson;
   cout << "You told me:" << endl;
   newperson.output();
   cout << endl;
