@@ -57,9 +57,9 @@ int main( )
       if ( people[i] == people[j] ) {
           cout << "people" << i << " and people" << j << " are equal:" << endl;
 
-          people[i].output();
+          cout << people[i];
 	  cout << endl;
-          people[j].output();
+          cout << people[j];
 	  cout << endl;
 	  cout << endl;
 
@@ -70,31 +70,45 @@ int main( )
   // into using operator>> and operator<<.
 
   cout << "Just for testing purposes, I'm asking for a new person." << endl;
-  cin >> myPerson;
+  cin >> newPerson;
   cout << "You told me:" << endl;
-  newperson.output();
+  cout << newperson;
   cout << endl;
   cout << endl;
 
+
+
   // These can also be used for overloaded input and output operators.
   //
-  cout << "Before operator=, people[5] and newperson contain:" << endl;
-  people[5].output();
+  cout << "Before operator=," << people[5] << "and" << newperson << "contain:" << endl;
+  cout << people[5];
   cout << endl;
-  newperson.output();
+  cout << newperson;
   cout << endl;
   cout << endl;
 
   // Here's where you'd overload the assignment operator. Note
   // that this already works, but not the way it's specified
   // in the exercise.
+
+  // Overloaded assignment operator
+    CreditRecord& operator=(const CreditRecord &other) {
+        if (this != &other) {  // Check for self-assignment
+            this->Naccts = other.Naccts;  // Copy the number of accounts
+            this->score = other.score;    // Copy the credit score
+            // Do NOT copy lname and fname
+        }
+        return *this;
+    }
   people[5] = newperson;
 
-  cout << "After operator=, people[5] and newperson contain:" << endl;
-  people[5].output();
+  cout << "After operator=, "<< people[5]<< "and" <<newperson<< "contain:" << endl;
+  cout << people[5];
   cout << endl;
-  newperson.output();
+  cout << newperson;
   cout << endl;
+
+
 
   return 0;
 }
